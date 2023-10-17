@@ -1,0 +1,5 @@
+10004,CNXCCLIEN-5,None
+10003,CNXCCLIEN-4,None
+10002,CNXCCLIEN-3,{'version': 1, 'type': 'doc', 'content': [{'type': 'paragraph', 'content': [{'type': 'text', 'text': 'As a traveler', 'marks': [{'type': 'strong'}]}, {'type': 'text', 'text': ', I want to select source and destination airport and provide relevant details, so that i get a confirmed booking itinerary'}]}]}
+10001,CNXCCLIEN-2,{'version': 1, 'type': 'doc', 'content': [{'type': 'paragraph', 'content': [{'type': 'text', 'text': 'As a traveler', 'marks': [{'type': 'strong'}]}, {'type': 'text', 'text': ', I want to see detailed information about each flight, including aircraft type, seat availability, baggage policies, and in-flight services, to make an informed decision.'}]}]}
+10000,CNXCCLIEN-1,{'version': 1, 'type': 'doc', 'content': [{'type': 'paragraph', 'content': [{'type': 'text', 'text': 'As a traveler, I want to search for available flights by providing my departure and destination locations and travel dates, so I can plan my trip efficiently'}]}]}
