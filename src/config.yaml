@@ -1,0 +1,3 @@
+prompts:
+  training_data_folder: prompts/healthcare/train
+  prompts_folder: prompts/healthcare/request

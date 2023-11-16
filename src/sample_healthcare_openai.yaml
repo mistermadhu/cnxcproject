@@ -1,0 +1,90 @@
+openapi: 3.0.0
+info:
+  title: Healthcare API
+  description: RESTful API for Healthcare Services
+  version: 1.0.0
+  contact:
+    name: Your Name
+    email: your.email@example.com
+servers:
+  - url: https://api.healthcare.example.com/v1
+
+paths:
+  /patients:
+    get:
+      summary: Get a list of patients
+      responses:
+        '200':
+          description: A list of patients
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Patient'
+    post:
+      summary: Create a new patient
+      requestBody:
+        description: Patient information
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Patient'
+      responses:
+        '201':
+          description: Patient created successfully
+
+  /patients/{id}:
+    parameters:
+      - name: id
+        in: path
+        required: true
+        description: The ID of the patient
+        schema:
+          type: integer
+      get:
+        summary: Get a patient by ID
+        responses:
+          '200':
+            description: The patient information
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/Patient'
+      put:
+        summary: Update a patient by ID
+        requestBody:
+          description: Updated patient information
+          required: true
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Patient'
+        responses:
+          '200':
+            description: Patient updated successfully
+      delete:
+        summary: Delete a patient by ID
+        responses:
+          '204':
+            description: Patient deleted successfully
+
+components:
+  schemas:
+    Patient:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        dob:
+          type: string
+          format: date
+        gender:
+          type: string
+          enum: [Male, Female, Other]
+      required:
+        - name
+        - dob
