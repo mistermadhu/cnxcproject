@@ -1,1 +1,0 @@
-Imagine you are a Tester working on testing a health care product

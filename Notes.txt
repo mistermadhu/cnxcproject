@@ -3,9 +3,11 @@
 python3  -m venv venv
 source venv/bin/activate
 pip3 install openai==0.27.0
-pip3 install python-decouple==3.8 python-multipart==0.0.6 requests==2.28.2 fastapi==0.90.1 bs4  PyGithub  fuzzywuzzy  
+pip3 install python-decouple==3.8 python-multipart==0.0.6 requests==2.28.2 fastapi==0.90.1 bs4  PyGithub  fuzzywuzzy  Faker
 pip3 install "uvicorn[standard]"
 uvicorn main:app --reload 
+
+Docs: http://127.0.0.1:8000/docs
 
 
 
@@ -18,3 +20,36 @@ uvicorn main:app --reload
   "branch": "main",
   "repo_url": "mistermadhu/cnxcproject"
 }
+
+
+Examples:
+========
+i) give a list of 10 US address in json format
+   007
+ii) Generate step definitions or features covering all scenarios  in python 3
+  00101
+
+iii) 
+
+
+Prompts: 
+Generate test cases for a user registration form, covering various scenarios such as valid inputs, invalid inputs, and edge cases.
+
+Create complete test scripts using python3 for testing the search functionality of a travel booking website, covering different search criteria and result validations
+
+
+Generate test cases for a mobile app login feature, including scenarios like correct credentials, incorrect passwords, and account lockouts.
+
+Create test scripts for an e-commerce website's checkout process, considering different payment methods and order quantities.
+
+Generate test cases for a file upload feature in a cloud storage application, considering file size limits, file types, and error handling.
+
+Create test scripts for testing the authentication and authorization process of a banking application, covering multiple user roles.
+
+Generate test cases for testing the navigation and usability of a content management system (CMS), considering various user roles and permissions.
+
+Create test scripts for testing the performance and scalability of a web service, simulating a large number of concurrent users.
+
+Generate test cases for a social media platform's post creation and interaction features, covering aspects like media attachments and user interactions.
+
+Create test scripts for testing the integration between a web application and a third-party API, verifying data exchange and error handling scenarios.

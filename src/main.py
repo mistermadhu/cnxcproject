@@ -11,6 +11,7 @@ from util.jira_utility import JIRAUtility
 from util.git_utility import GitUtility
 from model.GitModel import TestScript
 from util.gen_utility import GeneralUtilty
+from util.faker_utility import FakerUtility
 # Initiate App
 app = FastAPI()
 
@@ -45,11 +46,12 @@ async def root():
 @app.post("/sendprompt/")
 async def sendPrompt(prompt_message:str, training_id:str):
  # Get ChatGPT Response
+    gp = GeneralUtilty()
     chat_response = get_chat_response(prompt_message, training_id)
     print(chat_response)
-    return chat_response
     if not chat_response:
         return HTTPException(status_code=400, detail="Failed to chat response")
+    return gp.unSeralizeOutput(chat_response)
 
 @app.get("/post-audio-get/")
 async def get_audio():
@@ -234,3 +236,8 @@ async def getTrainedModelId(search_title:str):
 async def getAllTrainedModels():
   gp = GeneralUtilty()
   return gp.getAllTrainedModels()
+
+@app.get("/fake-data")
+async def getFakeData(testdata_type: str):
+   fk = FakerUtility()
+   return fk.getFakeData(testdata_type)

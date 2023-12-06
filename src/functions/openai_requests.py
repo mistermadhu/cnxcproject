@@ -34,8 +34,8 @@ def get_chat_response(message_input, training_id):
 
   try:
     response = openai.ChatCompletion.create(
-      #model="gpt-3.5-turbo",
-      model="gpt-4-1106-preview",
+      model="gpt-3.5-turbo",
+      #model="gpt-4-1106-preview",
       messages=messages
     )
     message_text = response["choices"][0]["message"]["content"]

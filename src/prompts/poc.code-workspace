@@ -1,0 +1,19 @@
+{
+  "folders": [
+	{
+		"path": "../../../poc"
+	},
+	{
+		"path": "../../../../../Tutorial/react/complex-react-app"
+	},
+	{
+		"path": "../../../../../Tutorial/react/backend-api"
+	},
+	{
+		"path": "../.."
+	},
+	{
+		"path": "../../../../../Tutorial/RachelChat"
+	}
+]
+}

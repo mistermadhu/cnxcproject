@@ -4,7 +4,10 @@ import json
 import yaml
 import uuid
 from fuzzywuzzy import fuzz
-
+from fastapi.responses import JSONResponse
+from fastapi.responses import PlainTextResponse
+from fastapi.encoders import jsonable_encoder
+from fastapi import status
 
 class GeneralUtilty:
 
@@ -100,21 +103,31 @@ class GeneralUtilty:
                 return None  # File doesn't exist
         # Create an instance of General Utility
 
+    def unSeralizeOutput(self, outputVal):
+        try:
+                json_obj=json.loads(outputVal)
+                return JSONResponse(content=jsonable_encoder(json_obj), status_code=status.HTTP_201_CREATED)
+        except ValueError:          
+                return PlainTextResponse(outputVal)
+    
     def findTitleFuzzyMatch(self, search_title):
         desiredID=""
         desiredTitle=""
-        similarity_score_threshold=40.0
+        similarity_score_threshold=20.0
 
         with open(f"{self.getTrainingFolder()}/MODEL_MAPPING.json", "r") as file:
                 data = json.load(file)
 
         # Loop through the key-value pairs in the dictionary
+        base_score=0
         for key, value in data.items():
                 similarity_score = fuzz.ratio(search_title, value)
-                print(similarity_score)
-                if(similarity_score > similarity_score_threshold):
+                #print(similarity_score)
+                #print (value)
+                if(similarity_score > base_score):
                         desiredID=key
                         desiredTitle=value
+                base_score=similarity_score
         # Calculate the similarity score using the fuzz.ratio function
         
         if(fuzz.ratio(search_title, desiredTitle) > similarity_score_threshold):
