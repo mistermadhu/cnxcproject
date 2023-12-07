@@ -8,7 +8,7 @@ pip3 install "uvicorn[standard]"
 uvicorn main:app --reload 
 
 Docs: http://127.0.0.1:8000/docs
-
+https://platform.openai.com/api-keys
 
 
 # Input for pushing test scripts to git repo
@@ -24,6 +24,8 @@ Docs: http://127.0.0.1:8000/docs
 
 Examples:
 ========
+
+get a list of 5 us address
 i) give a list of 10 US address in json format
    007
 ii) Generate step definitions or features covering all scenarios  in python 3

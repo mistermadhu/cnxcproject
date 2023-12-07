@@ -1,3 +1,4 @@
+ 
 from fastapi import FastAPI, File, UploadFile, HTTPException
 from fastapi.responses import StreamingResponse
 from fastapi.middleware.cors  import CORSMiddleware
@@ -17,11 +18,13 @@ app = FastAPI()
 
 # CORS - Origins
 origins =[
-    "http://localhost:5173,"
-    "http://localhost:5174,"
-    "http://localhost:4173,"
-    "http://localhost:4174,"
-    "http://localhost:3000,"
+    "http://localhost:5173",
+    "http://localhost:5174",
+    "http://localhost:4173",
+    "http://localhost:4174",
+    "http://localhost:3000",
+    "http://localhost:3000",
+    "*"
 
 
 ]
@@ -30,7 +33,7 @@ origins =[
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,
+    allow_origins=['*'],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"]
@@ -184,7 +187,7 @@ async def pushTestScripts(test_script:TestScript):
 @app.post("/generate-from-openapispec")
 async def generateScriptFromOpenapispec(prompt_message:str, training_id:str,file:UploadFile=File(...)):
  # GetScript from Open API Spec
-
+    gp = GeneralUtilty()
  # Save file form Frontend 
     with open(file.filename, "wb") as buffer:
         buffer.write(file.file.read())
@@ -204,7 +207,7 @@ async def generateScriptFromOpenapispec(prompt_message:str, training_id:str,file
     if not chat_response:
         return HTTPException(status_code=400, detail="Failed to chat response")
     else:
-       return chat_response
+       return gp.unSeralizeOutput(chat_response)
 
     # Create a generator that yields chunks of data 
     #def iterfile():
